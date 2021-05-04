@@ -39,6 +39,7 @@ function getSlotsForDate(DATE) {
 
     axios(config)
         .then(function (slots) {
+            //console.log(slots);
             let sessions = slots.data.sessions;
             let validSlots = sessions.filter(slot => slot.min_age_limit <= AGE &&  slot.available_capacity > 0)
             console.log({date:DATE, validSlots: validSlots.length})
